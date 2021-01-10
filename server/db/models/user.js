@@ -43,7 +43,7 @@ const userSchema = new mongoose.Schema(
     comments: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Comments',
+        ref: 'Comment',
       },
     ],
     tokens: [
@@ -91,9 +91,9 @@ userSchema.methods.generateAuthToken = async function () {
 };
 
 userSchema.statics.findByCredentials = async (email, password) => {
-  const user = await User.findOne({ email })
-    .populate('posts')
-    .populate('comments');
+  const user = await User.findOne({ email });
+  // .populate('posts')
+  // .populate('comments');
   if (!user) throw new Error('Invalid email or password');
   const matched = await bcrypt.compare(password, user.password);
   if (!matched) throw new Error('Invalid email or password');
