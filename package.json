@@ -17,19 +17,24 @@
   },
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js",
+    "server": "nodemon server.js",
+    "client": "cd client && yarn run start",
+    "dev": "concurrently --kill-others-on-fail \"yarn run server\" \"yarn run client\"",
     "db:reset": "node db/seeds.js",
     "prettier": "prettier '*/**/*.js' --write",
     "heroku-postbuild": "cd client && yarn && yarn run build"
   },
   "dependencies": {
     "@sendgrid/mail": "^7.4.0",
+    "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "cloudinary": "^1.23.0",
+    "concurrently": "^5.3.0",
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
     "express-fileupload": "^1.2.0",
     "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.3",
     "mongoose": "^5.11.9",
     "passport": "^0.4.1",
     "passport-jwt": "^4.0.0"
