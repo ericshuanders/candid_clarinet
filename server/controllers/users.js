@@ -3,7 +3,6 @@ const Post = require('../db/models/post');
 const Comment = require('../db/models/comment');
 const jwt = require('jsonwebtoken');
 const cloudinary = require('cloudinary').v2;
-const axios = require('axios');
 
 const isEmpty = value => {
   return !value;
@@ -127,7 +126,12 @@ exports.uploadAvatar = async (req, res) => {
     const response = await cloudinary.uploader.upload(
       req.files.avatar.tempFilePath
     );
-  } catch (error) {}
+    req.user.avatar = response.secure_url;
+    await req.user.save();
+    res.status(200).json(req.user);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
 };
 
 //Delete User//

@@ -1,8 +1,8 @@
 Arguments: 
-  /Users/ericanderson/.nvm/versions/node/v14.8.0/bin/node /Users/ericanderson/.nvm/versions/node/v14.8.0/bin/yarn server
+  /Users/ericanderson/.nvm/versions/node/v14.8.0/bin/node /Users/ericanderson/.nvm/versions/node/v14.8.0/bin/yarn dev
 
 PATH: 
-  /Users/ericanderson/.nvm/versions/node/v14.8.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+  /Users/ericanderson/.nvm/versions/node/v14.8.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/ericanderson/.nvm/versions/node/v14.8.0/bin
 
 Yarn version: 
   1.22.5

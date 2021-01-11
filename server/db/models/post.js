@@ -13,9 +13,8 @@ const postSchema = new mongoose.Schema(
       trim: true,
     },
     author: {
-      type: String,
-      required: true,
-      trim: true,
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
     },
     comments: [
       {
@@ -25,7 +24,7 @@ const postSchema = new mongoose.Schema(
     ],
     date: {
       type: Date,
-      required: true,
+      // required: true,
       trim: true,
     },
 
